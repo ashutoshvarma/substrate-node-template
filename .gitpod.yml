@@ -1,0 +1,16 @@
+image:
+  file: .gitpod.Dockerfile
+tasks:
+  - init: >
+      mkdir -p /home/gitpod/.config/nix &&
+      echo 'sandbox = false' >> /home/gitpod/.config/nix/nix.conf &&
+      direnv allow &&
+      nix-shell --run "cargo build"
+
+vscode:
+  extensions:
+    - bbenoist.Nix
+    - matklad.rust-analyzer
+    - eamodio.gitlens
+    - arrterian.nix-env-selector
+
